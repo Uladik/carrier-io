@@ -20,8 +20,6 @@ node{
             sh "mkdir -p /tmp/reports"
             sh "pwd"
             sh """cd / && ls -la &&  /launch.sh  -n -t /mnt/jmeter/FloodIO.jmx \\
-                  -j /tmp/reports/jmeter_${JOB_NAME}_${BUILD_ID}.log \\
-                  -l /tmp/reports/jmeter_${JOB_NAME}_${BUILD_ID}.jtl \\
                   -e -o /tmp/reports/HtmlReport_${JOB_NAME}_${BUILD_ID} \\
                   -Jinflux.host="""+get_influx_host(env.JENKINS_URL)+""" \\
                   -JVUSERS=10 -JDURATION=120 -Jinflux.db=jmeter -Jinflux.port=8086 \\
