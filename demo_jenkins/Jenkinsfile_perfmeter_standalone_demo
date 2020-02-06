@@ -17,8 +17,8 @@ node{
             dockerParamsString += " ${param}"
         }
         docker.image("getcarrier/perfmeter:latest").inside(dockerParamsString){
-            sh "mkdir /tmp/reports"
             sh "pwd"
+            sh "mkdir /tmp/reports"
             sh """cd / && ls -la &&  /launch.sh  -n -t /mnt/jmeter/FloodIO.jmx \\
                   -j /tmp/reports/jmeter_${JOB_NAME}_${BUILD_ID}.log \\
                   -l /tmp/reports/jmeter_${JOB_NAME}_${BUILD_ID}.jtl \\
